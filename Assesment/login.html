@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    <div class="hero">
+     <div class="form-box">
+         <div class="button-box">
+             <div id="btn"></div>
+             <button type="button" class="toggle-btn" onclick="Login()">Log In</button>
+             <button type="button" class="toggle-btn" onclick="Register()">Register</button>
+         </div>
+         <div class="social-icons">
+            <img src="https://www.creativefreedom.co.uk/wp-content/uploads/2017/06/Twitter-logo-2012.png">
+            <img src="https://image.flaticon.com/icons/png/512/124/124010.png">
+            <img src="https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png?w=300">
+        </div>
+        <form  id="Login" class="input-group">
+            <input type="text" class="input-field" placeholder="User Id" required>
+            <input type="password" class="input-field" placeholder="Enter Password" required>
+            <input type="checkbox" class="check-box"><span>Remember Password</span>
+            <button type="submit" class="submit-btn" onclick="popUp()">Log In</button>
+        </form>
+        <form id="Register" class="input-group"  action="https://formspree.io/f/meqvjqeq" method="POST">
+            <input type="text" class="input-field" id="UserID" name="userId" placeholder="User Id" required>
+            <input type="email" class="input-field" id="Email" name="email" placeholder="Email Id" required>
+            <input type="password" class="input-field" id="Password" name="password" placeholder="Enter Password" required>
+            <input type="checkbox" class="check-box" id="CheckBox" name="checkbox" required ><span>I agree to the terms and policy</span>
+            <button type="submit" class="submit-btn" id="button" onclick="popUp1()">Register</button>
+        </form>
+     </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        var x = document.getElementById("Login");
+        var y = document.getElementById("Register");
+        var z = document.getElementById("btn");
+
+        function Register(){
+            x.style.left="-400px";
+            y.style.left="50px";
+            z.style.left="110px"
+        }
+        function Login(){
+            x.style.left="50px";
+            y.style.left="450px";
+            z.style.left="0px";
+        }
+        function popUp1(){
+            var userId=$("#UserID").val();
+            var Password=$("#Password").val();
+            var Email=$("#Email").val();
+            if(userId=="" || Password==""||Email=="" ){
+                alert("Please check the missing field!!!")
+            }
+            else if(userId.length<6||Password.length<10){
+                alert("Password or User Id is too short");
+            }
+            else{
+                swal("Good job!", "SUCCESSFULLY REGISTERED!", "success");
+                alert("SUCCESSFULLY REGISTERED!!!!");
+            }
+            }
+    </script>
+</body>
+</html>
